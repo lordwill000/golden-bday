@@ -7,27 +7,31 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    colors: {
-      primary: colors.black,
-      secondary: '#75756A',
-      accent: '#F4F4E8',
-      white: '#ffffff'
-    },
+
     fontFamily: {
+      sans: [...defaultTheme.fontFamily.sans],
       script: ['La Luxes Script', ...defaultTheme.fontFamily.serif]
     },
     fontSize: {
-      lg: '1.125rem',
-      '2xl': '1.75rem',
-      '6xl': '3.5rem',
-      '8xl': '6.25rem',
-      '9xl': '8rem'
+      d5: '1.125rem',
+      d4: '1.75rem',
+      d3: '3.5rem',
+      d2: '6.25rem',
+      d1: '8rem'
     },
     extend: {
+      colors: {
+        primary: colors.black,
+        secondary: '#75756A',
+        accent: '#F4F4E8',
+        white: '#ffffff'
+      },
       fontFamily: {
         serif: ['La Luxes Serif', ...defaultTheme.fontFamily.serif]
       }
     }
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/forms')
+  ]
 }

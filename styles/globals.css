@@ -20,20 +20,21 @@
 
 @layer base {
   html {
-    @apply text-primary text-lg font-serif;
+    @apply text-primary ;
   }
 
-  h1 {
+  .d1 {
     @apply text-9xl font-script;
   }
 
-  h2 {
+  .d2 {
     @apply text-8xl font-script;
   }
 
-  h3 {
+  .d3 {
     @apply text-lg;
   }
+
 
   .button {
     @apply transition-all

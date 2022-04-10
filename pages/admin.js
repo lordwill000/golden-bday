@@ -1,28 +1,55 @@
+import { LockClosedIcon } from '@heroicons/react/solid'
+
 const Admin = () => {
   return (
-    <div className="grid min-h-screen place-items-center">
-      <div className="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-5/12">
-        <form className="mt-6">
-          <label htmlFor="email"
-            className="block text-xs font-semibold text-gray-600 uppercase"
-          >
-            E-mail
-          </label>
+    <div className="h-screen">
+      <div className="flex items-center justify-center
+        min-h-full
+        py-12 px-4
+        sm:px-6
+        lg:px-8"
+      >
 
-          <input id="email"
-            type="email" name="email"
-            placeholder="john.doe@company.com"
-            autoComplete="email"
-            className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
-            required
-          />
+        <div className="max-w-md w-full space-y-8">
+          <div>
+            <h2 className="mt-6
+              text-center text-3xl font-medium text-gray-900"
+            >
+              Sign in to your account
+            </h2>
+          </div>
 
-          <button type="submit"
-          className="button">
-            Log in
-          </button>
+          <form className="mt-8 space-y-6">
 
-        </form>
+            <div className="rounded-md shadow-sm">
+              <div>
+                <label htmlFor="email-address" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="email-address"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-amber-500 focus:border-amber-500 focus:z-10 sm:text-sm"
+                  placeholder="Email address"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-b-md  text-white bg-amber-400 hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-600"
+              >
+                <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+                  <LockClosedIcon className="h-5 w-5 text-amber-500 group-hover:text-amber-400" aria-hidden="true" />
+                </span>
+                Sign in
+              </button>
+
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   )
