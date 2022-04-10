@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'La Luxes Script';
+  src: url('/fonts/LaLuxesScript.ttf') format('ttf'),
+    url('/fonts/LaLuxesScript.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'La Luxes Serif';
+  src: url('/fonts/LaLuxesSerif.ttf') format('ttf'),
+    url('/fonts/LaLuxesSerif.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  html {
+    @apply text-primary text-lg font-serif;
+  }
+
+  h1 {
+    @apply text-9xl font-script;
+  }
+
+  h2 {
+    @apply text-8xl font-script;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
+
+  .button {
+    @apply transition-all
+      min-w-[11.25rem]
+      bg-accent
+      py-4
+      text-primary
+      hover:bg-secondary
+      hover:text-white
+  }
+}
