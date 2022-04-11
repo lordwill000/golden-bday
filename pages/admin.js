@@ -1,8 +1,14 @@
+import Head from 'next/head'
 import { LockClosedIcon } from '@heroicons/react/solid'
 
 const Admin = () => {
   return (
-    <div className="h-screen">
+    <>
+      <Head>
+        <title>Sign in</title>
+      </Head>
+
+      <div className="h-screen">
       <div className="flex items-center justify-center
         min-h-full
         py-12 px-4
@@ -52,6 +58,8 @@ const Admin = () => {
         </div>
       </div>
     </div>
+    </>
+
   )
 }
 
