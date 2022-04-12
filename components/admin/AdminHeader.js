@@ -3,7 +3,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon, LogoutIcon } from '@heroicons/react/outline'
 import { signOut } from 'next-auth/react'
 
-import ActiveLink from 'components/ActiveLink'
+// import ActiveLink from 'components/ActiveLink'
+import Link from 'next/link'
 import Avatar from 'components/Avatar'
 
 const navigation = [
@@ -28,11 +29,10 @@ const userNavigation = [
   }
 ]
 
-
 const AdminHeader = ({ page, user }) => {
   return (
     <>
-      <Disclosure as="nav" className="bg-amber-800">
+      <Disclosure as="nav" className="bg-white dark:bg-slate-900">
         {({ open }) => (
           <>
             <div className="max-w-screen-xl mx-auto px-4">
@@ -41,25 +41,26 @@ const AdminHeader = ({ page, user }) => {
                   <div className="hidden md:block">
                     <div className="flex items-baseline space-x-4">
                       {navigation.map((item) => (
-                        <ActiveLink
-                          key={item.name}
-                          activeClassName="bg-amber-900 text-white"
-                          href={ item.href }
-                        >
-                          <a className="text-amber-300 hover:bg-amber-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                        <Link key={item.name} href={item.href}>
+                          <a className={
+                            `px-3 py-2 rounded-md text-sm font-medium ${page.toLowerCase() === item.name.toLowerCase()
+                              ? 'text-white dark:text-slate-900 bg-slate-900 dark:bg-white hover:text-slate-900 hover:bg-slate-200 dark:hover:bg-slate-200'
+                              : 'text-slate-900 dark:text-white hover:text-white hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900'}`
+                            }
+                          >
                             {item.name}
                           </a>
-                        </ActiveLink>
+                        </Link>
                       ))}
                     </div>
                   </div>
                 </div>
                 <div className="hidden md:flex">
                   <div className="mr-4 flex items-center">
-                    <Avatar name={user.name}/>
+                    <Avatar name={user.name} />
                   </div>
 
-                  <a className="text-amber-300 hover:bg-amber-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  <a className="px-3 py-2 rounded-md text-sm font-medium text-slate-900 dark:text-white hover:text-white hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900 cursor-pointer"
                     onClick={() => signOut()}
                   >
                     Sign out
@@ -67,7 +68,7 @@ const AdminHeader = ({ page, user }) => {
                 </div>
                 <div className="-mr-2 flex md:hidden">
                   {/* Mobile menu button */}
-                  <Disclosure.Button className="bg-amber-800 inline-flex items-center justify-center p-2 rounded-md text-amber-400 hover:text-white hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-amber-800 focus:ring-white">
+                  <Disclosure.Button className="bg-slate-900 dark:bg-white inline-flex items-center justify-center p-2 rounded-md text-white dark:text-slate-900 hover:text-white dark:hover:text-slate-900 hover:bg-slate-700 dark:hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-white">
                     <span className="sr-only">Open main menu</span>
                     {open
                       ? (
@@ -83,26 +84,28 @@ const AdminHeader = ({ page, user }) => {
 
             <Disclosure.Panel className="md:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                {navigation.map((item) => (
-                  <ActiveLink
-                    key={item.name}
-                    activeClassName="bg-amber-900 text-white"
-                    href={ item.href }
-                  >
-                    <a className="block text-amber-300 hover:bg-amber-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              {
+                navigation.map((item) => (
+                  <Link key={item.name} href={item.href}>
+                    <a className={
+                      `block px-3 py-2 rounded-md text-sm font-medium ${page.toLowerCase() === item.name.toLowerCase()
+                        ? 'text-white dark:text-slate-900 bg-slate-900 dark:bg-white hover:text-slate-900 hover:bg-slate-200 dark:hover:bg-slate-200'
+                        : 'text-slate-900 dark:text-white hover:text-white hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900'}`
+                      }
+                    >
                       {item.name}
                     </a>
-                  </ActiveLink>
+                  </Link>
                 ))}
               </div>
-              <div className="pt-4 pb-3 border-t border-amber-700">
+              <div className="pt-4 pb-3 border-t border-slate-700">
                 <div className="flex items-center px-5">
                   <div className="flex-shrink-0">
-                    {/* <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" /> */}
+                    <Avatar name={user.name} />
                   </div>
                   <div className="ml-3">
-                    <div className="text-base font-medium leading-none text-white">{user.name}</div>
-                    <div className="text-sm font-medium leading-none text-amber-400">lordwill.mabalot@gmail.com</div>
+                    <div className="text-base font-medium leading-none text-slate-500">{user.name}</div>
+                    <div className="text-sm font-medium leading-none text-slate-400">{user.email}</div>
                   </div>
 
                 </div>
@@ -112,12 +115,12 @@ const AdminHeader = ({ page, user }) => {
                       key={item.name}
                       as="a"
                       href={item.href}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-amber-400 hover:text-white hover:bg-amber-700"
+                      className="block px-3 py-2 rounded-md text-sm font-medium text-slate-900 dark:text-white hover:text-white hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900"
                     >
                       {item.name}
                     </Disclosure.Button>
                   ))}
-                  <a className="block px-3 py-2 rounded-md text-base font-medium text-amber-400 hover:text-white hover:bg-amber-700"
+                  <a className="block px-3 py-2 rounded-md text-sm font-medium text-slate-900 dark:text-white hover:text-white hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900 cursor-pointer"
                     onClick={() => signOut()}
                   >Sign out</a>
                 </div>
@@ -129,7 +132,7 @@ const AdminHeader = ({ page, user }) => {
 
       <header className="bg-white dark:bg-gray-900 shadow">
         <div className="max-w-screen-xl mx-auto py-6 px-4">
-          <h1 className="text-3xl font-bold text-amber-900 dark:text-slate-50">
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-50">
             {page}
           </h1>
         </div>
