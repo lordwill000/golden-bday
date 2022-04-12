@@ -1,5 +1,5 @@
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import { signOut, useSession } from 'next-auth/react'
 
 export default function Dashboard () {
   const router = useRouter()
@@ -14,5 +14,10 @@ export default function Dashboard () {
     return 'Loading or not authenticated...'
   }
 
-  return 'User is logged in'
+  return (
+    <>
+      <p>user is signed in</p>
+      <button onClick={() => signOut()}>Sign out</button>
+    </>
+  )
 }

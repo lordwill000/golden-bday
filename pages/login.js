@@ -3,16 +3,30 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 import { signIn } from 'next-auth/react'
 import { useState } from 'react'
 
+import axios from 'lib/axios'
+
 const Login = () => {
   const [email, setEmail] = useState('')
 
-  const sendLoginVerification = e => {
+  const sendLoginVerification = async e => {
     e.preventDefault()
 
-    signIn('email', {
-      callbackUrl: '/admin/dashboard',
-      email
-    })
+    try {
+      const { data: success } = await axios.post('/email-check', { email })
+
+      if (success) {
+        console.log(success, 'success')
+        signIn('email',
+          {
+            callbackUrl: '/admin/dashboard',
+            email
+          })
+
+        return
+      }
+    } catch (error) {
+      console.log('email not found')
+    }
   }
 
   return (
