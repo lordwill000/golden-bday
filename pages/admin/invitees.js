@@ -1,10 +1,11 @@
 import Layout from 'components/AdminLayout'
 
-export default function Dashboard () {
+const Invitees = () => {
   return (
     <Layout>
-      dashboard poggers
+      Invitees pog
     </Layout>
-
   )
 }
+
+export default Invitees

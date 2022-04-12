@@ -1,10 +1,11 @@
 import Layout from 'components/AdminLayout'
 
-export default function Dashboard () {
+const Users = () => {
   return (
     <Layout>
-      dashboard poggers
+      users pog
     </Layout>
-
   )
 }
+
+export default Users
