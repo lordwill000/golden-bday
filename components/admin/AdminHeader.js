@@ -130,7 +130,7 @@ const AdminHeader = ({ page, user }) => {
         )}
       </Disclosure>
 
-      <header className="bg-white dark:bg-gray-900 shadow">
+      <header className="bg-white dark:bg-gray-900 border-b border-slate-900 dark:border-white">
         <div className="max-w-screen-xl mx-auto py-6 px-4">
           <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-50">
             {page}
