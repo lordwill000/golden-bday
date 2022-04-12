@@ -20,7 +20,11 @@
 
 @layer base {
   html {
-    @apply text-primary ;
+    @apply min-h-screen;
+  }
+
+  body {
+    @apply text-primary min-h-screen;
   }
 
   .d1 {
@@ -35,7 +39,6 @@
     @apply text-lg;
   }
 
-
   .button {
     @apply transition-all
       min-w-[11.25rem]
@@ -44,5 +47,9 @@
       text-primary
       hover:bg-secondary
       hover:text-white
+  }
+  
+  #__next {
+    @apply min-h-screen;
   }
 }
