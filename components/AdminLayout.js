@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import { useState, useEffect } from 'react'
 
-export default function Layout ({ children }) {
+function Layout (props) {
   const router = useRouter()
 
   const [currentPage, setCurrentPage] = useState('')
@@ -16,7 +16,7 @@ export default function Layout ({ children }) {
     setCurrentPage(formatted.toUpperCase())
   }, [currentPage, router])
 
-  const { status } = useSession({
+  const { status, data: session } = useSession({
     required: true,
     onUnauthenticated () {
       router.push('/api/auth/signin')
@@ -36,13 +36,13 @@ export default function Layout ({ children }) {
 
   return (
     <>
-      <AdminHeader page={currentPage}/>
+      <AdminHeader page={currentPage} user={session.user}/>
 
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">
             <div className="border-4 border-dashed border-gray-200 rounded-lg p-3">
-              { children }
+              {/* { children } */}
             </div>
           </div>
         </div>
@@ -50,3 +50,5 @@ export default function Layout ({ children }) {
     </>
   )
 }
+
+export default Layout
