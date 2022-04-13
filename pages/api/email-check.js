@@ -2,11 +2,11 @@ import dbConnect from 'lib/mongoose'
 import User from 'models/User'
 
 export default async function handler (req, res) {
-  await dbConnect()
-
-  console.log('connected to db')
-
   if (req.method === 'POST' && req.body.email) {
+    await dbConnect()
+
+    console.log('connected to db...')
+
     const email = req.body.email
 
     const emailExists = await User.findOne({ email })

@@ -71,7 +71,7 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  className="group rounded-b-md w-full admin-button"
+                  className="group rounded-b-md rounded-t-none w-full admin-button"
                 >
                   <span className="absolute left-0 inset-y-0 pl-3 admin-button__icon-wrapper">
                     <LockClosedIcon className="admin-button__icon" aria-hidden="true" />
