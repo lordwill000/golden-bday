@@ -9,8 +9,8 @@ import Avatar from 'components/Avatar'
 
 const navigation = [
   {
-    name: 'Dashboard',
-    href: '/admin/dashboard'
+    name: 'CMS',
+    href: '/admin/cms'
   },
   {
     name: 'Users',

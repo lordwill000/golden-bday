@@ -18,7 +18,7 @@ const Login = () => {
         console.log(success, 'success')
         signIn('email',
           {
-            callbackUrl: '/admin/dashboard',
+            callbackUrl: '/admin/cms',
             email
           })
 

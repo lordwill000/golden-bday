@@ -1,9 +1,9 @@
 import Layout from 'components/AdminLayout'
 
-export default function Dashboard () {
+export default function Cms () {
   return (
     <Layout>
-      dashboard poggers
+      Cms poggers
     </Layout>
 
   )
