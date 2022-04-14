@@ -6,5 +6,5 @@ export const randomizeTailwindColor = () => {
 
   const randomColor = colors[Math.floor(Math.random() * colors.length)]
 
-  return `bg-${randomColor}-900 hover:bg-${randomColor}-900`
+  return `bg-${randomColor}-700 hover:bg-${randomColor}-900`
 }

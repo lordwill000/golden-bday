@@ -44,5 +44,10 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms')
+  ],
+  safelist: [
+    {
+      pattern: /bg-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(700|900)/
+    }
   ]
 }

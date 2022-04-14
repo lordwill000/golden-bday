@@ -5,7 +5,7 @@ import { signOut } from 'next-auth/react'
 
 // import ActiveLink from 'components/ActiveLink'
 import Link from 'next/link'
-import Avatar from 'components/Avatar'
+import Avatar from 'components/admin/Avatar'
 
 const navigation = [
   {

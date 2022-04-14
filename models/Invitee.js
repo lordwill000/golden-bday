@@ -14,6 +14,8 @@ const InviteeSchema = new mongoose.Schema({
     type: String
   }
 
+}, {
+  timestamps: true
 })
 
 export default mongoose.models.Invitee || mongoose.model('Invitee', InviteeSchema)

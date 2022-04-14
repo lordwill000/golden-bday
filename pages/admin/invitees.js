@@ -1,12 +1,12 @@
 import { Disclosure } from '@headlessui/react'
 import { PlusIcon } from '@heroicons/react/outline'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import useSWR from 'swr'
 
-import Layout from 'components/AdminLayout'
+import Layout from 'components/admin/AdminLayout'
+import InviteesRecords from 'components/admin/InviteesRecords'
 
 import axios from 'lib/axios'
-import dbConnect from 'lib/mongoose'
-import Invitee from 'models/Invitee'
 
 const rsvp = [
   {
@@ -23,13 +23,17 @@ const rsvp = [
   }
 ]
 
-const Invitees = ({ invitees }) => {
+const fetcher = url => axios.post(url).then(res => res.data)
+
+const Invitees = () => {
   const [name, setName] = useState('')
   const [newRsvp, setNewRsvp] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formMessage, setFormMessage] = useState('')
 
-  const renderRsvp = () => {
+  const { data, error, mutate } = useSWR('/invitees/all', fetcher)
+
+  function renderRsvp () {
     return (
       <>
         {rsvp.map(response => {
@@ -55,14 +59,29 @@ const Invitees = ({ invitees }) => {
     )
   }
 
-  const handleSubmit = async e => {
+  function renderInvitees () {
+    if (error) {
+      return <div className="text-rose-900">Failed to load invitees</div>
+    }
+
+    if (!data) {
+      return <div className='text-neutral-900 dark:text-white'>Loading invitees</div>
+    }
+
+    return <InviteesRecords invitees={data.invitees}
+      summary={data.summary}
+      onDelete={handleDelete}
+    />
+  }
+
+  async function handleSubmit (e) {
     e.preventDefault()
 
     if (name && newRsvp) {
       setIsSubmitting(true)
 
       try {
-        const { data, status } = await axios.post('/invitee/add', {
+        const { data, status } = await axios.post('/invitees/add', {
           name,
           rsvp: newRsvp
         })
@@ -75,21 +94,39 @@ const Invitees = ({ invitees }) => {
           return
         }
 
+        setName('')
         setFormMessage(data.message)
+
+        mutate()
       } catch (error) {
         console.log(error)
       }
 
       setIsSubmitting(false)
+    }
+  }
 
-      console.log('allo')
+  async function handleDelete (id) {
+    if (!id) return
+
+    try {
+      const { data: success, status } = await axios.delete('/invitees/delete', { data: { id } })
+
+      if (status !== 200 || !success) {
+        console.log(error, 'Error in deleting invitee')
+        return
+      }
+
+      mutate()
+    } catch (error) {
+      console.log(error, 'Error in deleting invitee')
     }
   }
 
   return (
     <Layout>
-      <>
-        <section className='mb-6'>
+      <div className='space-y-6'>
+        <section>
           <Disclosure>
             {({ open }) => (
               <>
@@ -105,7 +142,7 @@ const Invitees = ({ invitees }) => {
                 <Disclosure.Panel className="mt-5">
                   <form onSubmit={handleSubmit}>
                     <div className="shadow overflow-hidden rounded-md">
-                      <div className="px-4 py-5 bg-white dark:bg-slate-900 sm:p-6 space-y-4">
+                      <div className="p-4 bg-white dark:bg-slate-900 space-y-4">
                         <div>
                           <label htmlFor="first-name" className="admin-form-field__label">
                             Name
@@ -155,22 +192,10 @@ const Invitees = ({ invitees }) => {
           </Disclosure>
         </section>
 
-        <section>
-
-        </section>
-      </>
+        {renderInvitees()}
+      </div>
     </Layout>
   )
-}
-
-export async function getServerSideProps (ctx) {
-  await dbConnect()
-
-  const invitees = await Invitee.find().all().limit(10)
-
-  return {
-    props: { invitees: JSON.parse(JSON.stringify(invitees)) }
-  }
 }
 
 export default Invitees

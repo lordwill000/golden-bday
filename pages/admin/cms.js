@@ -1,4 +1,4 @@
-import Layout from 'components/AdminLayout'
+import Layout from 'components/admin/AdminLayout'
 
 export default function Cms () {
   return (

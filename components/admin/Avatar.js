@@ -1,4 +1,4 @@
-const Avatar = ({ name, profileBg }) => {
+const Avatar = ({ otherClasses, name, profileBg }) => {
   const initials = name.split(' ').splice(0, 2).map(name => name[0]).join('')
 
   return (
@@ -7,6 +7,7 @@ const Avatar = ({ name, profileBg }) => {
       rounded-full h-10 w-10
       text-white text-xl
       ${profileBg}
+      ${otherClasses}
     `}>
       {initials}
     </div>
