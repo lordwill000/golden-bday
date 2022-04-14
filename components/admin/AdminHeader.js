@@ -101,7 +101,7 @@ const AdminHeader = ({ page, user }) => {
               <div className="pt-4 pb-3 border-t border-slate-700">
                 <div className="flex items-center px-5">
                   <div className="flex-shrink-0">
-                    <Avatar name={user.name} />
+                    <Avatar name={user.name} profileBg={user.profileBg} />
                   </div>
                   <div className="ml-3">
                     <div className="text-base font-medium leading-none text-slate-500">{user.name}</div>
