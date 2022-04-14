@@ -1,6 +1,7 @@
 import { getSession } from 'next-auth/react'
 import dbConnect from 'lib/mongoose'
 import Invitee from 'models/Invitee'
+import { randomizeTailwindColor } from 'helpers/utils'
 
 export default async function handler (req, res) {
   const session = await getSession({ req })
@@ -23,7 +24,9 @@ export default async function handler (req, res) {
     }
 
     const invitee = await Invitee.create({
-      name, rsvp
+      name,
+      rsvp,
+      profileBg: randomizeTailwindColor()
     })
 
     if (invitee) {

@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { MenuIcon, XIcon, LogoutIcon } from '@heroicons/react/outline'
+import { Disclosure } from '@headlessui/react'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { signOut } from 'next-auth/react'
 
 // import ActiveLink from 'components/ActiveLink'
@@ -57,7 +57,7 @@ const AdminHeader = ({ page, user }) => {
                 </div>
                 <div className="hidden md:flex">
                   <div className="mr-4 flex items-center">
-                    <Avatar name={user.name} />
+                    <Avatar name={user.name} profileBg={user.profileBg} />
                   </div>
 
                   <a className="px-3 py-2 rounded-md text-sm font-medium text-slate-900 dark:text-white hover:text-white hover:bg-slate-900 dark:hover:bg-white dark:hover:text-slate-900 cursor-pointer"

@@ -5,6 +5,8 @@ import { useState } from 'react'
 import Layout from 'components/AdminLayout'
 
 import axios from 'lib/axios'
+import dbConnect from 'lib/mongoose'
+import Invitee from 'models/Invitee'
 
 const rsvp = [
   {
@@ -21,7 +23,7 @@ const rsvp = [
   }
 ]
 
-const Invitees = () => {
+const Invitees = ({ invitees }) => {
   const [name, setName] = useState('')
   const [newRsvp, setNewRsvp] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -74,10 +76,8 @@ const Invitees = () => {
         }
 
         setFormMessage(data.message)
-
-        console.log(data, 'res allooololol')
       } catch (error) {
-        throw new Error('error in adding invitee', error)
+        console.log(error)
       }
 
       setIsSubmitting(false)
@@ -107,7 +107,7 @@ const Invitees = () => {
                     <div className="shadow overflow-hidden rounded-md">
                       <div className="px-4 py-5 bg-white dark:bg-slate-900 sm:p-6 space-y-4">
                         <div>
-                          <label htmlFor="first-name" className="block text-sm font-medium text-gray-700 dark:text-slate-200">
+                          <label htmlFor="first-name" className="admin-form-field__label">
                             Name
                           </label>
                           <input type="text"
@@ -115,7 +115,7 @@ const Invitees = () => {
                             id="first-name"
                             autoComplete="given-name"
                             placeholder='Lordwill Mabalot'
-                            className="mt-1 focus:ring-slate-500 focus:border-slate-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-slate-900"
+                            className="admin-form-field__input"
                             onChange={e => setName(e.target.value)}
                           />
                         </div>
@@ -161,6 +161,16 @@ const Invitees = () => {
       </>
     </Layout>
   )
+}
+
+export async function getServerSideProps (ctx) {
+  await dbConnect()
+
+  const invitees = await Invitee.find().all().limit(10)
+
+  return {
+    props: { invitees: JSON.parse(JSON.stringify(invitees)) }
+  }
 }
 
 export default Invitees

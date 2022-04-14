@@ -7,7 +7,11 @@ const InviteeSchema = new mongoose.Schema({
     unique: [true, 'Name already exists']
   },
   rsvp: {
-    type: Boolean
+    type: String,
+    required: true
+  },
+  profileBg: {
+    type: String
   }
 
 })
