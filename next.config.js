@@ -5,7 +5,7 @@ const nextConfig = {
     return [
       {
         source: '/admin',
-        destination: '/admin/cms',
+        destination: '/admin/invitees',
         permanent: true
       }
 

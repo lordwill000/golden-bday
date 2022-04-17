@@ -9,16 +9,16 @@ import Avatar from 'components/admin/Avatar'
 
 const navigation = [
   {
+    name: 'Invitees',
+    href: '/admin/invitees'
+  },
+  {
     name: 'CMS',
     href: '/admin/cms'
   },
   {
     name: 'Users',
     href: '/admin/users'
-  },
-  {
-    name: 'Invitees',
-    href: '/admin/invitees'
   }
 ]
 

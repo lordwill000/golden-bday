@@ -36,7 +36,7 @@ const InviteesRecords = ({ invitees, summary, onDelete }) => {
   }, [selected])
 
   function handleFilter (clear) {
-    if(!clear) {
+    if (!clear) {
       setShowingInvitees(invitees.filter(invitee => invitee.rsvp === selected.key))
 
       return
@@ -160,8 +160,7 @@ const InviteesRecords = ({ invitees, summary, onDelete }) => {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           { showingInvitees.length
-            ? 
-            (showingInvitees.map(({ _id, name, rsvp, profileBg }) => (
+            ? (showingInvitees.map(({ _id, name, rsvp, profileBg }) => (
               <div key={_id} className="flex items-center gap-3 p-3
               border border-slate-900 dark:border-white rounded-md transition
               bg-slate-900 dark:bg-white
@@ -184,7 +183,7 @@ const InviteesRecords = ({ invitees, summary, onDelete }) => {
                   <TrashIcon className='block h-6 w-6' />
                 </button>
               </div>
-            )))
+              )))
             : 'No invitees'
           }
       </div>

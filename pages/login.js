@@ -18,7 +18,7 @@ const Login = () => {
         console.log(success, 'success')
         signIn('email',
           {
-            callbackUrl: '/admin/cms',
+            callbackUrl: '/admin/invitees',
             email
           })
 
@@ -63,7 +63,7 @@ const Login = () => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
+                    className="admin-input rounded-t-md"
                     placeholder="Email address"
                     onChange={ e => setEmail(e.target.value) }
                   />
