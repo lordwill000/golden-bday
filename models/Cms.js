@@ -1,9 +1,15 @@
 import mongoose from 'mongoose'
 
+const ImageSchema = new mongoose.Schema({
+  src: String,
+  height: Number,
+  width: Number
+})
+
 const DetailsSchema = new mongoose.Schema({
   header: String,
   copy: String,
-  image: String
+  image: [ImageSchema]
 })
 
 const CmsSchema = new mongoose.Schema({

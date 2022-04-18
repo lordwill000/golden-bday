@@ -8,6 +8,13 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
+    container: {
+      center: true,
+      maxWidth: {
+        xl: '1440px'
+      },
+      padding: '1rem'
+    },
     fontFamily: {
       sans: [...defaultTheme.fontFamily.sans],
       script: ['La Luxes Script', ...defaultTheme.fontFamily.serif]
@@ -43,7 +50,26 @@ module.exports = {
     }
   },
   plugins: [
-    require('@tailwindcss/forms')
+    require('@tailwindcss/forms'),
+    function ({ addComponents }) {
+      addComponents({
+        '.container': {
+          maxWidth: '100%',
+          '@screen sm': {
+            maxWidth: '640px'
+          },
+          '@screen md': {
+            maxWidth: '768px'
+          },
+          '@screen lg': {
+            maxWidth: '1024px'
+          },
+          '@screen xl': {
+            maxWidth: '1440px'
+          }
+        }
+      })
+    }
   ],
   safelist: [
     {

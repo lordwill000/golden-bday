@@ -69,6 +69,10 @@
   .admin-form-field__input {
     @apply mt-1 focus:ring-slate-500 focus:border-slate-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-slate-900;
   }
+}
 
-
+.home-image {
+  max-width: 100% !important;
+  height: auto !important;
+  width: 100% !important;
 }
