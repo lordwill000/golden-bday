@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const DetailsSchema = new mongoose.Schema({
   header: String,
@@ -13,6 +13,7 @@ const CmsSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  heroAddress: String,
   details: [DetailsSchema],
   rsvpHeader: String,
   rsvpCopy: String,

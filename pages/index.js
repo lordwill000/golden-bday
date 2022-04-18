@@ -2,11 +2,20 @@ import { getSession, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
 
+import InvitationLayout from 'components/InvitationLayout'
+import Hero from 'components/Hero'
+
 const Homepage = () => {
   // Check if the user is authenticated from the client
   // const { data: session, status } = useSession()
 
-  return (<>home pog</>)
+  return (
+    <InvitationLayout>
+      <>
+        <Hero/>
+      </>
+    </InvitationLayout>
+  )
 
   // if (status === 'loading') {
   //   return <>Loading...</>

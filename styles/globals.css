@@ -27,18 +27,6 @@
     @apply text-slate-900 dark:text-white min-h-screen bg-white dark:bg-slate-900;
   }
 
-  .d1 {
-    @apply text-9xl font-script;
-  }
-
-  .d2 {
-    @apply text-8xl font-script;
-  }
-
-  .d3 {
-    @apply text-lg;
-  }
-
   .button {
     @apply transition-all
       min-w-[11.25rem]
