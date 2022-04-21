@@ -4,6 +4,7 @@ import React from 'react'
 import InvitationLayout from 'components/InvitationLayout'
 import Hero from './Hero'
 import Details from './Details'
+import Rsvp from './Rsvp'
 
 const InvitationContent = () => {
   // Check if the user is authenticated from the client
@@ -14,6 +15,7 @@ const InvitationContent = () => {
       <>
         <Hero />
         <Details/>
+        <Rsvp/>
       </>
     </InvitationLayout>
   )
