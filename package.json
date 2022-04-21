@@ -15,6 +15,7 @@
     "axios": "^0.26.1",
     "mongodb": "^4.5.0",
     "mongoose": "^6.2.10",
+    "mongoose-slug-generator": "^1.0.4",
     "next": "12.1.4",
     "next-auth": "^4.3.1",
     "nodemailer": "^6.7.3",

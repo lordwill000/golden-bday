@@ -1,10 +1,17 @@
 import React from 'react'
 
-import InvitationContent from 'components/InvitationContent'
+import InvitationLayout from 'components/InvitationLayout'
+import Hero from 'components/Hero'
+import Details from 'components/Details'
 
 const Homepage = () => {
   return (
-    <InvitationContent/>
+    <InvitationLayout>
+      <>
+        <Hero />
+        <Details/>
+      </>
+    </InvitationLayout>
   )
 }
 

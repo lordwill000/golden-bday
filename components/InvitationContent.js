@@ -1,23 +1,20 @@
 import { getSession, signOut, useSession } from 'next-auth/react'
 import React from 'react'
 
-import InvitationLayout from 'components/InvitationLayout'
-import Hero from './Hero'
-import Details from './Details'
-import Rsvp from './Rsvp'
-
 const InvitationContent = () => {
   // Check if the user is authenticated from the client
   // const { data: session, status } = useSession()
 
   return (
-    <InvitationLayout>
-      <>
-        <Hero />
-        <Details/>
-        <Rsvp/>
-      </>
-    </InvitationLayout>
+    <p>allo</p>
+    // <InvitationLayout>
+    //   <>
+    //     <Hero />
+    //     <Details/>
+
+  //     <Rsvp/>
+  //   </>
+  // </InvitationLayout>
   )
 
   // if (status === 'loading') {
