@@ -45,7 +45,7 @@ export default function Hero ({ header, name, address, date }) {
         </div>
       </div>
 
-      <div className='absolute bottom-8 text-center'>
+      <div className='lg:absolute lg:bottom-8 mt-8 lg:mt-0 text-center'>
         <Link to='details'
           smooth={true}
           className='transition-transform hover:translate-y-1 block cursor-pointer'
