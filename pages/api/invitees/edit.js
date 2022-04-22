@@ -5,7 +5,7 @@ export default async function handler (req, res) {
   await dbConnect()
 
   if (req.method === 'PUT') {
-    const { id, rsvp } = req.body
+    const { id, rsvp, name } = req.body
 
     const invitee = await Invitee.findById(id)
 
@@ -18,7 +18,7 @@ export default async function handler (req, res) {
       return
     }
 
-    const updatedInvitee = await Invitee.findByIdAndUpdate(id, { rsvp })
+    const updatedInvitee = await Invitee.findByIdAndUpdate(id, { rsvp, name }, { new: true })
 
     res.status(200).json({
       ...updatedInvitee,

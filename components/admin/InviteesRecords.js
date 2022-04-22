@@ -160,7 +160,7 @@ const InviteesRecords = ({ invitees, summary, onDelete }) => {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           { showingInvitees.length
-            ? (showingInvitees.map(({ _id, name, rsvp, profileBg }) => (
+            ? (showingInvitees.map(({ _id, name, rsvp, profileBg, slug }) => (
               <div key={_id} className="flex items-center gap-3 p-3
               border border-slate-900 dark:border-white rounded-md transition
               bg-slate-900 dark:bg-white
@@ -169,7 +169,7 @@ const InviteesRecords = ({ invitees, summary, onDelete }) => {
               hover:text-slate-900 dark:hover:text-white"
             >
                 <Avatar otherClasses="shrink-0" name={name} profileBg={profileBg}/>
-                <Link href={`/admin/invitees/${_id}`} passHref>
+                <Link href={`/admin/invitees/${slug}`} passHref>
                   <a className='grow'>
                     <p>{name}</p>
                     <p><small>RSVP: &nbsp;

@@ -21,7 +21,7 @@ export default function Cms () {
   return (
     <Layout>
       <div className="bg-slate-900 dark:bg-white shadow overflow-hidden sm:rounded-lg">
-        <div className="px-4 py-5 sm:px-6">
+        <div className="px-4 py-5">
           <div className="flex items-center justify-between">
             <h3 className="text-lg leading-6 font-medium text-white dark:text-slate-900">
               Hero
