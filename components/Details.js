@@ -24,7 +24,7 @@ const Details = () => {
   ])
 
   return (
-    <div className='space-y-20'>
+    <section id="details" className='space-y-20'>
       {
         invDetails.map(({ header, image, copy }, index) => {
           return (
@@ -76,7 +76,7 @@ const Details = () => {
           )
         })
       }
-    </div>
+    </section>
   )
 }
 

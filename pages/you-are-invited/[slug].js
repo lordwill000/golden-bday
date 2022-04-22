@@ -6,31 +6,36 @@ import Invitee from 'models/Invitee'
 import InvitationLayout from 'components/InvitationLayout'
 import Hero from 'components/Hero'
 import Details from 'components/Details'
+import AreYouLost from 'components/AreYouLost'
 
 const Rsvp = dynamic(() => import('components/Rsvp'))
 
-export default function Invitation ({ isInvited }) {
-  console.log(isInvited)
+export default function Invitation ({ invitee }) {
   return (
     <InvitationLayout>
-      <Hero/>
-      <Details/>
-      <Rsvp/>
+      {
+        invitee
+          ? <>
+            <Hero/>
+            <Details/>
+            <Rsvp invitee={invitee}/>
+          </>
+          : <AreYouLost />
+      }
     </InvitationLayout>
   )
 }
 
 export const getServerSideProps = async ctx => {
-  // Check if the user is authenticated from the server
   await dbConnect()
 
   const slug = ctx.query.slug
 
-  const isInvited = await Invitee.findOne({ slug })
+  const invitee = await Invitee.findOne({ slug })
 
   return {
     props: {
-      isInvited
+      invitee: JSON.parse(JSON.stringify(invitee))
     }
   }
 }

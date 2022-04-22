@@ -1,12 +1,13 @@
 import Image from 'next/image'
+import { Link } from 'react-scroll'
 import { ChevronDownIcon } from '@heroicons/react/outline'
 
 const Hero = ({ header, name, address, date }) => {
   return (
-    <div className="min-h-screen relative flex flex-col items-center justify-center mb-24 md:mb-40">
+    <section className="min-h-screen relative flex flex-col items-center justify-center mb-24 md:mb-40">
       <div className="w-full lg:w-3/6 mx-auto text-center">
         <div className='mx-auto'>
-          <Image alt='logo' src="/Logo.png" width={302} height={283} />
+          <Image alt='logo' src="/Logo.png" width={302} height={283} priority />
         </div>
         <div className="text-d4 font-serif -mt-10 mb-6">
           JOIN US to celebrate
@@ -32,12 +33,15 @@ const Hero = ({ header, name, address, date }) => {
       </div>
 
       <div className='absolute bottom-8 text-center'>
-        <a href="#" className='transition-transform hover:translate-y-1 block'>
+        <Link to='details'
+          smooth={true}
+          className='transition-transform hover:translate-y-1 block cursor-pointer'
+        >
           <span>More details</span>
           <ChevronDownIcon className='h-6 w-6 stroke-1 text-black mx-auto'/>
-        </a>
+        </Link>
       </div>
-    </div>
+    </section>
   )
 }
 
