@@ -13,10 +13,6 @@ const navigation = [
     href: '/admin/invitees'
   },
   {
-    name: 'CMS',
-    href: '/admin/cms'
-  },
-  {
     name: 'Users',
     href: '/admin/users'
   }

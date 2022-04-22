@@ -1,10 +1,11 @@
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/outline'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import useSWR from 'swr'
 
 import Layout from 'components/admin/AdminLayout'
 import InviteesRecords from 'components/admin/InviteesRecords'
+import Loader from 'components/Loader'
 
 import axios from 'lib/axios'
 
@@ -27,7 +28,7 @@ const fetcher = url => axios.post(url).then(res => res.data)
 
 const Invitees = () => {
   const [name, setName] = useState('')
-  const [newRsvp, setNewRsvp] = useState(null)
+  const [newRsvp, setNewRsvp] = useState(rsvp[0].value)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formMessage, setFormMessage] = useState('')
 
@@ -85,21 +86,22 @@ const Invitees = () => {
   function renderRsvp () {
     return (
       <>
-        {rsvp.map(response => {
+        {rsvp.map(({ value, label }) => {
           return (
-            <div key={response.value}
+            <div key={value}
               className="flex items-center"
             >
               <input
-                id={response.label}
-                value={response.value}
+                id={label}
+                value={value}
                 name="push-notifications"
                 type="radio"
                 className="h-4 w-4 text-slate-600 border-gray-300"
+                checked={newRsvp === value}
                 onChange={e => setNewRsvp(e.target.value)}
               />
-              <label htmlFor={response.label} className="ml-3 block text-sm font-medium text-gray-700 dark:text-white">
-                {response.label}
+              <label htmlFor={label} className="ml-3 block text-sm font-medium text-gray-700 dark:text-white">
+                {label}
               </label>
             </div>
           )
@@ -110,11 +112,11 @@ const Invitees = () => {
 
   function renderInvitees () {
     if (error) {
-      return <div className="text-rose-900">Failed to load invitees</div>
+      return <div className="text-rose-900 mt-5">Failed to load invitees</div>
     }
 
     if (!data) {
-      return <div className='text-neutral-900 dark:text-white'>Loading invitees</div>
+      return <div className='text-neutral-900 dark:text-white mt-5'>Loading invitees</div>
     }
 
     return <InviteesRecords invitees={data.invitees}
@@ -142,12 +144,12 @@ const Invitees = () => {
                   <div className="shadow overflow-hidden rounded-md">
                     <div className="bg-white dark:bg-slate-900 space-y-4">
                       <div>
-                        <label htmlFor="first-name" className="admin-form-field__label">
+                        <label htmlFor="name" className="admin-form-field__label">
                           Name
                         </label>
                         <input type="text"
-                          name="first-name"
-                          id="first-name"
+                          name="name"
+                          id="name"
                           autoComplete="given-name"
                           placeholder='Lordwill Mabalot'
                           className="admin-form-field__input"
@@ -166,12 +168,7 @@ const Invitees = () => {
                       >
                         {
                           isSubmitting
-                            ? (
-                              <svg className="animate-spin -h-5 w-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                              </svg>
-                              )
+                            ? <Loader />
                             : 'Submit'
                         }
 

@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { TrashIcon, CheckIcon, XIcon, ChevronUpIcon } from '@heroicons/react/solid'
 import { Disclosure, RadioGroup } from '@headlessui/react'
 
-import Avatar from './Avatar'
+import ProfileCard from './ProfileCard'
 
 const filterOptions = [
   {
@@ -44,17 +43,6 @@ const InviteesRecords = ({ invitees, summary, onDelete }) => {
 
     setSelected(null)
     setShowingInvitees(invitees)
-  }
-
-  const rsvpColor = (rsvp) => {
-    switch (rsvp) {
-      case 'no':
-        return 'text-rose-600'
-      case 'not-yet':
-        return 'text-neutral-600'
-      default:
-        return 'text-lime-600'
-    }
   }
 
   return (
@@ -160,33 +148,16 @@ const InviteesRecords = ({ invitees, summary, onDelete }) => {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           { showingInvitees.length
-            ? (showingInvitees.map(({ _id, name, rsvp, profileBg, slug }) => (
-              <div key={_id} className="flex items-center gap-3 p-3
-              border border-slate-900 dark:border-white rounded-md transition
-              bg-slate-900 dark:bg-white
-              hover:bg-slate-200 dark:hover:bg-slate-900
-              text-white dark:text-slate-900
-              hover:text-slate-900 dark:hover:text-white"
-            >
-                <Avatar otherClasses="shrink-0" name={name} profileBg={profileBg}/>
-                <Link href={`/admin/invitees/${slug}`} passHref>
-                  <a className='grow'>
-                    <p>{name}</p>
-                    <p><small>RSVP: &nbsp;
-                      <span className={rsvpColor(rsvp)}>
-                        {rsvp.replace('-', ' ').toUpperCase()}</span>
-                      </small>
-                    </p>
-                  </a>
-                </Link>
-                <button className="shrink-0" onClick={() => onDelete(_id)}>
-                  <TrashIcon className='block h-6 w-6' />
-                </button>
-              </div>
+            ? (showingInvitees.map(invitee => (
+                <ProfileCard key={invitee._id} user={invitee}>
+                  <button className="shrink-0" onClick={() => onDelete(invitee._id)}>
+                    <TrashIcon className='block h-6 w-6' />
+                  </button>
+                </ProfileCard>
               )))
             : 'No invitees'
           }
-      </div>
+        </div>
       </section>
 
     </div>
