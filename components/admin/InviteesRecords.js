@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { TrashIcon, CheckIcon, XIcon, ChevronUpIcon } from '@heroicons/react/solid'
+import { TrashIcon, CheckIcon, XIcon, ChevronUpIcon, ClipboardCopyIcon } from '@heroicons/react/solid'
 import { Disclosure, RadioGroup } from '@headlessui/react'
 
 import ProfileCard from './ProfileCard'
@@ -151,6 +151,13 @@ const InviteesRecords = ({ invitees, summary, onDelete }) => {
                 <ProfileCard key={invitee._id} user={invitee}>
                   <button className="shrink-0" onClick={() => onDelete(invitee._id)}>
                     <TrashIcon className='block h-6 w-6' />
+                  </button>
+
+                  <button className="shrink-0"
+                    onClick={() => navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_URL}you-are-invited/${invitee.slug}`)}
+                    title="Copy to clipboard"
+                  >
+                    <ClipboardCopyIcon className='block h-6 w-6' />
                   </button>
                 </ProfileCard>
               )))
