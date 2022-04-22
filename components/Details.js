@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 
 const Details = () => {
-  const [invDetails, setInvDetails] = useState([
+  const [invDetails] = useState([
     {
       header: 'Attire',
       image: {

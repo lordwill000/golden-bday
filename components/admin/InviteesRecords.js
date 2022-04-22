@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { TrashIcon, CheckIcon, XIcon, ChevronUpIcon } from '@heroicons/react/solid'
 import { Disclosure, RadioGroup } from '@headlessui/react'
 
@@ -23,18 +23,7 @@ const InviteesRecords = ({ invitees, summary, onDelete }) => {
   const [showingInvitees, setShowingInvitees] = useState(invitees)
   const [selected, setSelected] = useState(null)
 
-  useEffect(() => {
-    setShowingInvitees(invitees)
-    handleFilter(true)
-  }, [invitees])
-
-  useEffect(() => {
-    if (selected) {
-      handleFilter(false)
-    }
-  }, [selected])
-
-  function handleFilter (clear) {
+  const handleFilter = useCallback((clear) => {
     if (!clear) {
       setShowingInvitees(invitees.filter(invitee => invitee.rsvp === selected.key))
 
@@ -43,7 +32,17 @@ const InviteesRecords = ({ invitees, summary, onDelete }) => {
 
     setSelected(null)
     setShowingInvitees(invitees)
-  }
+  }, [invitees, selected])
+
+  useEffect(() => {
+    setShowingInvitees(invitees)
+  }, [invitees])
+
+  useEffect(() => {
+    if (selected) {
+      handleFilter(false)
+    }
+  }, [selected, handleFilter])
 
   return (
     <div className="mt-2 space-y-5">
