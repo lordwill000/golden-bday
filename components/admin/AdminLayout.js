@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import { useState, useEffect } from 'react'
+import Head from 'next/head'
 
 import AdminHeader from 'components/admin/AdminHeader'
 import Loader from 'components/Loader'
@@ -41,6 +42,10 @@ function Layout ({ children }) {
 
   return (
     <div className='h-screen'>
+      <Head>
+        <title>Admin | {currentPage}</title>
+      </Head>
+
       <AdminHeader page={currentPage} user={session}/>
 
       <main>

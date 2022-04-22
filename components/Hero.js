@@ -1,8 +1,21 @@
 import Image from 'next/image'
 import { Link } from 'react-scroll'
 import { ChevronDownIcon } from '@heroicons/react/outline'
+import { useState, useEffect } from 'react'
 
-const Hero = ({ header, name, address, date }) => {
+export default function Hero ({ header, name, address, date }) {
+  const [newDate, setNewDate] = useState()
+
+  useEffect(() => {
+    const oneDay = 1000 * 60 * 60 * 24
+    const currentDate = new Date()
+    const birthdate = new Date(currentDate.getFullYear(), 4, 8)
+
+    const daysLeft = Math.round(birthdate.getTime() - currentDate.getTime()) / (oneDay)
+
+    setNewDate(daysLeft.toFixed(0))
+  }, [])
+
   return (
     <section className="min-h-screen relative flex flex-col items-center justify-center mb-24 md:mb-40">
       <div className="w-full lg:w-3/6 mx-auto text-center">
@@ -14,12 +27,12 @@ const Hero = ({ header, name, address, date }) => {
           <br />the fiftieth birthday of
         </div>
         <div className="space-y-8">
-          <div className="text-d3 font-script">Lordwill Mabalot</div>
+          <div className="text-d3 font-script">Divine Cabral Cuya</div>
 
           <div>
-            saturday, may 5 2022 at 11am
+            saturday, may 7 2022 at 11am
             <br/>
-            <span className='text-sm'>30 days to go</span>
+            <span className='text-sm'>{newDate} days to go</span>
           </div>
 
           <div>
@@ -44,5 +57,3 @@ const Hero = ({ header, name, address, date }) => {
     </section>
   )
 }
-
-export default Hero
