@@ -8,17 +8,19 @@ import Hero from 'components/Hero'
 import Details from 'components/Details'
 import AreYouLost from 'components/AreYouLost'
 
+import cms from 'helpers/cms'
+
 const Rsvp = dynamic(() => import('components/Rsvp'))
 
-export default function Invitation ({ invitee }) {
+export default function Invitation ({ invitee, cms: { hero, details, rsvp } }) {
   return (
     <InvitationLayout>
       {
         invitee
           ? <>
-            <Hero/>
-            <Details/>
-            <Rsvp invitee={invitee}/>
+            <Hero cms={ hero }/>
+            <Details cms={ details }/>
+            <Rsvp cms={ rsvp } invitee={invitee}/>
           </>
           : <AreYouLost />
       }
@@ -35,7 +37,8 @@ export const getServerSideProps = async ctx => {
 
   return {
     props: {
-      invitee: JSON.parse(JSON.stringify(invitee))
+      invitee: JSON.parse(JSON.stringify(invitee)),
+      cms
     }
   }
 }

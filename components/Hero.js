@@ -3,7 +3,7 @@ import { Link } from 'react-scroll'
 import { ChevronDownIcon } from '@heroicons/react/outline'
 import { useState, useEffect } from 'react'
 
-export default function Hero ({ header, name, address, date }) {
+export default function Hero ({ cms: { header, name, address, date } }) {
   const [newDate, setNewDate] = useState()
 
   useEffect(() => {
@@ -22,26 +22,19 @@ export default function Hero ({ header, name, address, date }) {
         <div className='mx-auto'>
           <Image alt='logo' src="/Logo.png" width={302} height={283} priority />
         </div>
-        <div className="text-d4 font-serif -mt-10 mb-6">
-          JOIN US to celebrate
-          <br />the fiftieth birthday of
+        <div className="text-d4 font-serif -mt-10 mb-6"
+          dangerouslySetInnerHTML={{ __html: header }}>
         </div>
         <div className="space-y-8">
-          <div className="text-d3 font-script">Divine Cabral Cuya</div>
+          <div className="text-d3 font-script">{name}</div>
 
           <div>
-            saturday, may 7 2022 at 11am
+            {date}
             <br/>
             <span className='text-sm'>{newDate} days to go</span>
           </div>
 
-          <div>
-          divine’s place
-          <br/>
-          351 sitio ipil brgy. bataan
-          <br/>
-          san juan, batangas
-          </div>
+          <div dangerouslySetInnerHTML={{ __html: address }}></div>
         </div>
       </div>
 

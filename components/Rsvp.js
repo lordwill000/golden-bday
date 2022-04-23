@@ -15,7 +15,16 @@ const CHOICES = [
   }
 ]
 
-export default function Rsvp ({ invitee }) {
+export default function Rsvp ({
+  invitee,
+  cms: {
+    header,
+    notYet,
+    queries,
+    thankYou,
+    done
+  }
+}) {
   const [name, setName] = useState(invitee.name)
   const [rsvpSelected, setRsvpSelected] = useState(CHOICES[0].value)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -27,7 +36,7 @@ export default function Rsvp ({ invitee }) {
     setIsSubmitting(true)
 
     try {
-      const { data, status } = await axios.put('/invitees/edit', {
+      const { status } = await axios.put('/invitees/edit', {
         id: invitee._id,
         rsvp: rsvpSelected
       })
@@ -38,7 +47,6 @@ export default function Rsvp ({ invitee }) {
         setIsSubmitting(false)
       }
 
-      console.log(data)
       setHasSubmitted(true)
 
       return
@@ -47,21 +55,19 @@ export default function Rsvp ({ invitee }) {
     }
 
     setIsSubmitting(false)
-
-    console.log('submit alo')
   }
 
   function renderForm () {
     if (hasSubmitted) {
       return (
-        <p>Thank you for your response</p>
+        <p>{thankYou}</p>
       )
     }
 
     if (invitee.rsvp === 'not-yet') {
       return (
         <>
-          <p className='mb-14'>Please rsvp on or before date here and bawal mag plus 1 kek</p>
+          <p className='mb-14'>{notYet}</p>
 
           <form className="space-y-5 mb-10" onSubmit={handleFormSubmit}>
             <div className="relative after:absolute after:bottom-4
@@ -89,7 +95,8 @@ export default function Rsvp ({ invitee }) {
                         value={value}
                         id={value}
                         checked={rsvpSelected === value}
-                        className="checked:bg-primary checked:hover:bg-primary focus:ring-primary ring-primary"
+                        className="checked:bg-primary checked:hover:bg-primary
+                          focus:ring-primary ring-primary"
                         onChange={e => setRsvpSelected(e.target.value)}
                       />
                       <span className="ml-4">{label}</span>
@@ -108,7 +115,7 @@ export default function Rsvp ({ invitee }) {
               disabled={isSubmitting}
             >
               {
-                !isSubmitting
+                isSubmitting
                   ? <Loader />
                   : 'Send'
               }
@@ -116,20 +123,22 @@ export default function Rsvp ({ invitee }) {
             </button>
           </form>
 
-          <p>for questions, reach out to jamal on +63 9272443771</p>
+          <p>{queries}</p>
         </>
       )
     }
 
     return (
-      <p>You already RSVP. If you want to change your response, reach out to jamal on +63 9272443771</p>
+      <p>{done}</p>
     )
   }
 
   return (
     <section className="mt-20 mt:lg-40">
       <div className="w-full lg:w-6/12 mb-14">
-        <div className="text-d2 font-script leading-[0.9] lg:leading-normal">RSVP</div>
+        <div className="text-d2 font-script leading-[0.9] lg:leading-normal">
+          {header}
+        </div>
       </div>
 
       <div className="w-full lg:w-6/12 mb-16 pl-12">

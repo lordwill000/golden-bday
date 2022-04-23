@@ -1,32 +1,10 @@
-import { useState } from 'react'
 import Image from 'next/image'
 
-const Details = () => {
-  const [invDetails] = useState([
-    {
-      header: 'Attire',
-      image: {
-        src: '/Group 2.png',
-        height: 634,
-        width: 753
-      },
-      copy: 'Bacon ipsum dolor amet spare ribs jerky sausage boudin short ribs ground round pork kevin. Sausage ham hock sirloin kevin porchetta spare ribs, alcatra meatloaf shankle landjaeger tongue picanha.'
-    },
-    {
-      header: 'Bring a gift',
-      image: {
-        src: '/gift.png',
-        height: 648,
-        width: 751
-      },
-      copy: 'Bacon ipsum dolor amet spare ribs jerky sausage boudin short ribs ground round pork kevin. Sausage ham hock sirloin kevin porchetta spare ribs, alcatra meatloaf shankle landjaeger tongue picanha.'
-    }
-  ])
-
+const Details = ({ cms: details }) => {
   return (
     <section id="details" className='space-y-20'>
       {
-        invDetails.map(({ header, image, copy }, index) => {
+        details.map(({ header, image, copy }, index) => {
           return (
             <section key={index}
               className={`${index % 2 ? 'text-right' : 'text-left'} flex flex-wrap lg:flex-nowrap relative`}
