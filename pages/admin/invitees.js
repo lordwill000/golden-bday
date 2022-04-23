@@ -11,16 +11,16 @@ import axios from 'lib/axios'
 
 const rsvp = [
   {
+    label: 'Not yet RSVP',
+    value: 'not-yet'
+  },
+  {
     label: 'Yes',
     value: 'yes'
   },
   {
     label: 'No',
     value: 'no'
-  },
-  {
-    label: 'Not yet RSVP',
-    value: 'not-yet'
   }
 ]
 
