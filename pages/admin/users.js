@@ -202,9 +202,7 @@ const Users = () => {
                       >
                         {
                           isSubmitting
-                            ? (
-                              <Loader/>
-                              )
+                            ? <Loader colorClass='dark:text-slate-900 text-accent' />
                             : 'Submit'
                         }
 

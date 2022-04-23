@@ -80,8 +80,8 @@ export default function AdminInvitee ({ invitee }) {
             </h3>
             <button className='admin-button' onClick={handleSave}>
               {
-                isSaving
-                  ? <Loader colorClass="text-accent"/>
+                !isSaving
+                  ? <Loader colorClass='dark:text-slate-900 text-accent'/>
                   : (
                     <>
                       <span className="admin-button__icon-wrapper">

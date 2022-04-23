@@ -108,8 +108,8 @@ export default function Rsvp ({ invitee }) {
               disabled={isSubmitting}
             >
               {
-                isSubmitting
-                  ? <Loader colorClass="text-accent"/>
+                !isSubmitting
+                  ? <Loader />
                   : 'Send'
               }
 

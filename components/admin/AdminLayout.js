@@ -35,7 +35,7 @@ function Layout ({ children }) {
   if (status === 'loading') {
     return (
       <div className="h-full flex ">
-        <Loader colorClass="text-accent" />
+        <Loader colorClass="dark:text-accent text-slate-900" />
       </div>
     )
   }
