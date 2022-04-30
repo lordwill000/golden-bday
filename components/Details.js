@@ -27,7 +27,7 @@ const Details = ({ cms: details }) => {
                           <div className="pr-12 space-y-2">
                             <p>{copy1}</p>
                             <p>{copy2}</p>
-                            <p>{copy3}</p>
+                            <div dangerouslySetInnerHTML={{ __html: copy3 }}/>
                           </div>
                         </div>
                       </>
@@ -39,7 +39,7 @@ const Details = ({ cms: details }) => {
                         <div className="pl-12 space-y-2">
                           <p>{copy1}</p>
                           <p>{copy2}</p>
-                          <p>{copy3}</p>
+                          <div dangerouslySetInnerHTML={{ __html: copy3 }}/>
                         </div>
                       </div>
                       <div className='w-full lg:w-8/12 lg:ml-auto'>

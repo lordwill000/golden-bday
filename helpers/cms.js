@@ -3,7 +3,7 @@ const cms = {
     header: `JOIN US to celebrate
     <br />the fiftieth birthday of`,
     name: 'Divine Cabral Cuya',
-    date: 'saturday, may 7 2022 at 11am',
+    date: 'saturday, may 7 2022 at 5pm',
     address: `divine’s place
     <br/>
     351 sitio ipil brgy. bataan
@@ -20,7 +20,7 @@ const cms = {
       },
       copy1: 'Ladies - wear boho-inspired outfits; go for long flowing skirts, maxi, midi or mini dresses and denim shirts with a loose top paired with chic scarves, hats, headbands, cardigans and belts.',
       copy2: 'Men - wear anything casual; go for polo shirts or t-shirts for the top while pairing it with a pair of jeans or shorts.',
-      copy3: '* See images for reference'
+      copy3: '<p>* See images for reference and color pallete <a target="_blank" href=\'https://drive.google.com/file/d/17JszdfJtdL268oelhB5NJpi76uWn-PKs/view?usp=drivesdk\'>here</a></p>'
     },
     {
       header: 'Bring a gift',
@@ -44,7 +44,7 @@ const cms = {
     'John Bonnard Cabral',
     'Andrei Samarita',
     'Xavier Cabral',
-    'Vhonn Michael Vecina',
+    'Ronald Anyayahan',
     'Jamel Concha',
     'Bonn Cabral',
     'Jessie Cuya'
@@ -63,7 +63,7 @@ const cms = {
     'Agnes Rueda',
     'Irene Panganiban',
     'Beverly Cabral',
-    'Ronald Anyayahan',
+    'Thess Benosa',
     'Nicole Silang'
   ],
   candles: [
@@ -86,7 +86,7 @@ const cms = {
     'Catherine Cuya',
     'Charlotte Cuya',
     'Cinderella Cuya',
-    'Jewel Espinosa'
+    'Jewell Espinosa'
   ],
   rsvp: {
     header: 'RSVP',

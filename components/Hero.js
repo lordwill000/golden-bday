@@ -18,7 +18,7 @@ export default function Hero ({ cms: { header, name, address, date } }) {
 
   return (
     <section className="min-h-screen relative flex flex-col items-center justify-center mb-24 md:mb-40">
-      <div className="w-full lg:w-3/6 mx-auto text-center">
+      <div className="w-full lg:w-3/6 mx-auto mt-auto text-center">
         <div className='mx-auto'>
           <Image alt='logo' src="/Logo.png" width={302} height={283} priority />
         </div>
@@ -38,7 +38,7 @@ export default function Hero ({ cms: { header, name, address, date } }) {
         </div>
       </div>
 
-      <div className='lg:absolute lg:bottom-8 mt-8 lg:mt-0 text-center'>
+      <div className='mt-auto pb-8 text-center'>
         <Link to='details'
           smooth={true}
           className='transition-transform hover:translate-y-1 block cursor-pointer'

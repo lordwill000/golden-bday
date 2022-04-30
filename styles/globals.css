@@ -27,6 +27,14 @@
     @apply text-slate-900 dark:text-white min-h-screen bg-white dark:bg-slate-900 tracking-[0.02em];
   }
 
+  p a {
+    @apply underline;
+  }
+
+  p a:hover {
+    @apply no-underline;
+  }
+
   .button {
     @apply transition-all
       min-w-[11.25rem]
