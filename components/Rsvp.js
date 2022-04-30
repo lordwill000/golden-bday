@@ -60,14 +60,14 @@ export default function Rsvp ({
   function renderForm () {
     if (hasSubmitted) {
       return (
-        <p>{thankYou}</p>
+        <p>{thankYou} {queries}</p>
       )
     }
 
     if (invitee.rsvp === 'not-yet') {
       return (
         <>
-          <p className='mb-14'>{notYet}</p>
+          <div className='space-y-2 mb-14' dangerouslySetInnerHTML={{ __html: notYet }}/>
 
           <form className="space-y-5 mb-10" onSubmit={handleFormSubmit}>
             <div className="relative after:absolute after:bottom-4
@@ -135,7 +135,7 @@ export default function Rsvp ({
 
   return (
     <section className="mt-20 lg:mt-40">
-      <div className="w-full lg:w-6/12 mb-14">
+      <div className="w-full lg:w-6/12">
         <div className="text-d2 font-script leading-[0.9] lg:leading-normal">
           {header}
         </div>

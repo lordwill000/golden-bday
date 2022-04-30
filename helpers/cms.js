@@ -18,7 +18,9 @@ const cms = {
         height: 634,
         width: 753
       },
-      copy: 'Bacon ipsum dolor amet spare ribs jerky sausage boudin short ribs ground round pork kevin. Sausage ham hock sirloin kevin porchetta spare ribs, alcatra meatloaf shankle landjaeger tongue picanha.'
+      copy1: 'Ladies - wear boho-inspired outfits; go for long flowing skirts, maxi, midi or mini dresses and denim shirts with a loose top paired with chic scarves, hats, headbands, cardigans and belts.',
+      copy2: 'Men - wear anything casual; go for polo shirts or t-shirts for the top while pairing it with a pair of jeans or shorts.',
+      copy3: '* See images for reference'
     },
     {
       header: 'Bring a gift',
@@ -27,7 +29,7 @@ const cms = {
         height: 648,
         width: 751
       },
-      copy: 'Bacon ipsum dolor amet spare ribs jerky sausage boudin short ribs ground round pork kevin. Sausage ham hock sirloin kevin porchetta spare ribs, alcatra meatloaf shankle landjaeger tongue picanha.'
+      copy1: 'Thank you for taking the time to celebrate Divine\'s special day! Giving her a gift would surely make the party extra memorable and she would be ecstatic! Thank you very much 😋'
     }
   ],
   roses: [
@@ -88,9 +90,10 @@ const cms = {
   ],
   rsvp: {
     header: 'RSVP',
-    notYet: 'Please rsvp on or before date here and bawal mag plus 1 kek',
+    notYet: `<p>Please accept with pleasure if you're sure to attend the party. If not, decline with regrets!</p>
+    <p>Make sure to include #lookingdivineat50 in your every post</p>`,
     queries: 'for questions, reach out to Cindy on +63 9069127521',
-    thankYou: 'Thank you for your response',
+    thankYou: 'Thank you for your response!',
     done: 'You already RSVP. If you want to change your response, reach out to Cindy on +63 9069127521'
   }
 }
