@@ -1,5 +1,4 @@
 const List = ({ title, items, parentClass, cols }) => {
-  console.log(items)
   return (
     <div className={parentClass}>
       <div className="text-d2 font-script leading-[0.9] lg:leading-normal">{title}</div>
