@@ -21,16 +21,16 @@ const cms = {
       copy1: 'Ladies - wear boho-inspired outfits; go for long flowing skirts, maxi, midi or mini dresses and denim shirts with a loose top paired with chic scarves, hats, headbands, cardigans and belts.',
       copy2: 'Men - wear anything casual; go for polo shirts or t-shirts for the top while pairing it with a pair of jeans or shorts.',
       copy3: '<p>* See images for reference and color pallete <a target="_blank" href=\'https://drive.google.com/file/d/17JszdfJtdL268oelhB5NJpi76uWn-PKs/view?usp=drivesdk\'>here</a></p>'
-    },
-    {
-      header: 'Bring a gift',
-      image: {
-        src: '/gift.png',
-        height: 648,
-        width: 751
-      },
-      copy1: 'Thank you for taking the time to celebrate Divine\'s special day! Giving her a gift would surely make the party extra memorable and she would be ecstatic! Thank you very much 😋'
     }
+    // {
+    //   header: 'Bring a gift',
+    //   image: {
+    //     src: '/gift.png',
+    //     height: 648,
+    //     width: 751
+    //   },
+    //   copy1: 'Thank you for taking the time to celebrate Divine\'s special day! Giving her a gift would surely make the party extra memorable and she would be ecstatic! Thank you very much 😋'
+    // }
   ],
   roses: [
     'Leonardo Cabral',
