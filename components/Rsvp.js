@@ -134,7 +134,7 @@ export default function Rsvp ({
   }
 
   return (
-    <section className="mt-20 mt:lg-40">
+    <section className="mt-20 lg:mt-40">
       <div className="w-full lg:w-6/12 mb-14">
         <div className="text-d2 font-script leading-[0.9] lg:leading-normal">
           {header}

@@ -31,11 +31,15 @@ module.exports = {
       '5xl': '3rem',
       '6xl': '4rem',
       '7xl': '5rem',
-      d5: '1.125rem',
-      d4: '1.75rem',
-      d3: '3.5rem',
-      d2: '6.25rem',
-      d1: '8rem'
+      d4: ['1.75rem', {
+        letterSpacing: 0
+      }],
+      d3: ['3.5rem', {
+        letterSpacing: 0
+      }],
+      d2: ['6.25rem', {
+        letterSpacing: 0
+      }]
     },
     extend: {
       colors: {

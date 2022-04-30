@@ -154,7 +154,7 @@ const InviteesRecords = ({ invitees, summary, onDelete }) => {
                   </button>
 
                   <button className="shrink-0"
-                    onClick={() => navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_URL}you-are-invited/${invitee.slug}`)}
+                    onClick={() => navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_URL}/you-are-invited/${invitee.slug}`)}
                     title="Copy to clipboard"
                   >
                     <ClipboardCopyIcon className='block h-6 w-6' />

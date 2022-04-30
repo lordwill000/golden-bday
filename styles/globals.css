@@ -24,7 +24,7 @@
   }
 
   body {
-    @apply text-slate-900 dark:text-white min-h-screen bg-white dark:bg-slate-900;
+    @apply text-slate-900 dark:text-white min-h-screen bg-white dark:bg-slate-900 tracking-[0.02em];
   }
 
   .button {
