@@ -33,9 +33,9 @@ const cms = {
   rsvp: {
     header: 'RSVP',
     notYet: 'Please rsvp on or before date here and bawal mag plus 1 kek',
-    queries: 'for questions, reach out to jamal on +63 9272443771',
+    queries: 'for questions, reach out to Cindy on +63 9069127521',
     thankYou: 'Thank you for your response',
-    done: 'You already RSVP. If you want to change your response, reach out to jamal on +63 9272443771'
+    done: 'You already RSVP. If you want to change your response, reach out to Cindy on +63 9069127521'
   }
 }
 
